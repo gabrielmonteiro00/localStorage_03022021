@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <script type="text/javascript">
+    
+    //funçao de adicionar;
+    
+            function adicionar()
+            {
+                localStorage.setItem(txtChave.value, txtValor.value);
+                alert("Item adicionado.");
+                txtChave.value = txtValor.value = "";
+            }
+            
+    //funçao de ler;
+    
+            function ler()
+            {
+                var obj = localStorage.getItem(txtChave.value);
+                if(obj != null)
+                    alert(obj)
+                else
+                    alert("O item procurado não existe.")
+            }
+
+	//função de remover item;
+    
+    		function remover()
+            {
+                localStorage.removeItem(txtChave.value);
+                alert("Item removido.");
+            }
+
+     //funçao de limpar tudo do storage;
+     	
+        	function limpar()
+            {
+                localStorage.clear();
+                alert("");
+            }
+            
+    </script>
+</head>
+<body>
+    Chave:
+    <input type="text" id="txtChave"/>
+    Valor:
+    <input type="text" id="txtValor"/>
+    <hr/>
+    <button id="btnAdicionar" onclick="adicionar()">Adicionar item</button>
+    <button id="btnLer" onclick="ler()">Ler valor</button>
+    <button id="btnRemover" onclick="remover()">Remover item</button>
+    <button id="btnLimpar" onclick="limpar()">Remover todos</button>
+</body>
+</html>
+
+
+

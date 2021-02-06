@@ -8,10 +8,18 @@
             function adicionar()
             {
                 localStorage.setItem(txtChave.value, txtValor.value);
-                alert("Item adicionado.");
-                txtChave.value = txtValor.value = "";
-            }
-            
+                                
+                                
+                var obj = localStorage.getItem(txtChave.value, txtValor.value); 
+              	 document.getElementById("list").innerHTML = obj; 
+                 
+                 alert("Item adicionado.");
+                 txtChave.value = txtValor.value = ""; 
+                 
+                
+                
+             }
+             
     //funçao de ler;
     
             function ler()
@@ -21,38 +29,47 @@
                     alert(obj)
                 else
                     alert("O item procurado não existe.")
+                       node.appendChild(textnode);                             
             }
 
-	//função de remover item;
-    
-    		function remover()
-            {
-                localStorage.removeItem(txtChave.value);
-                alert("Item removido.");
-            }
 
      //funçao de limpar tudo do storage;
      	
         	function limpar()
             {
                 localStorage.clear();
-                alert("Todos os itens removidos");
+                document.getElementById("list").innerHTML=""
+                alert("Tela limpa");
             }
+            
+            
+         
+
             
     </script>
 </head>
 <body>
+	
+	<ul>
+    <h1>Teste JS LocalStorage</h1>
     Chave:
     <input type="text" id="txtChave"/>
     Valor:
-    <input type="text" id="txtValor"/>
+    <input type="text" id="txtValor"/><br>
     <hr/>
-    <button id="btnAdicionar" onclick="adicionar()">Adicionar item</button>
-    <button id="btnLer" onclick="ler()">Ler valor</button>
-    <button id="btnRemover" onclick="remover()">Remover item</button>
-    <button id="btnLimpar" onclick="limpar()">Remover todos</button>
+    <button id="btnAdicionar" onclick="adicionar()">Gravar</button>
+    <button id="btnLer" onclick="ler()">Pesquisar</button>   
+    <button id="btnLimpar" onclick="limpar()">Limpar</button>
+    </ul>
+    <div>
+    	
+        Listagem:
+        <h2 id="list"></h2>
+	
+    </div>
 </body>
 </html>
+
 
 
 
